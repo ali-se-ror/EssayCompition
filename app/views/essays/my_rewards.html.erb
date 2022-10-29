@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Rewards</h1>
+
+<div id="rewards">
+  <table>
+    <thead>
+
+    </thead>
+    <tbody>
+    <% @rewards.each do |reward| %>
+      <%= render 'rewards/reward', reward: reward %>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<%= link_to "New essay", new_essay_path %>

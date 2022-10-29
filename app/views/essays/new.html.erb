@@ -1,0 +1,12 @@
+<h1>New essay</h1>
+<% if @essay.nil?  %>
+  <h1> You have already submited essay today</h1>
+  <% else %>
+<%= render "form", essay: @essay %>
+
+<br>
+
+<div>
+  <%= link_to "Back to essays", essays_path %>
+</div>
+<% end %>

@@ -1,0 +1,5 @@
+class AddUserIdIntoEssays < ActiveRecord::Migration[7.0]
+  def change
+    add_column :rewards, :user_id, :integer
+  end
+end

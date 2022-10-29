@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href=<%= root_path %>>Essay Winner</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <% if current_user %>
+        <li class="nav-item active">
+          <a class="nav-link" href=<%= root_path %>>Dashboard </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=<%= essays_path %>>My Essays</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= my_rewards_essays_path %>">My Rewards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#"><%= current_user.email %></a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } %>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <a class="nav-link" href=<%= rewards_path %>> Rewards </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

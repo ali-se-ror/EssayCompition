@@ -1,0 +1,64 @@
+<div class="container-fluid" style="margin: 20px 0px 20px 0px">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-uppercase mb-0" style="display: inline">My Essays List</h5>
+          <a style="float: right" class="btn btn-primary" href=<%= new_essay_path%> role="button">Submit New Essay</a>
+        </div>
+        <div class="table-responsive">
+          <table class="table no-wrap user-table mb-0">
+            <thead>
+            <tr>
+              <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Title</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Description</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Length</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Submission</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Points</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Position</th>
+              <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <% if essays.present? %>
+              <% essays.each_with_index do |essay, index|  %>
+                <tr>
+                  <td class="pl-4"><%= index+1 %></td>
+                  <td>
+                    <h5 class="font-medium mb-0"><%= essay.title %></h5>
+                  </td>
+                  <td>
+                    <h5 class="font-medium mb-0"><%= essay.body[0..30] << "..." %></h5>
+                  </td>
+                  <td>
+                    <span class="text-muted"><%= essay.length %></span>
+                  </td>
+                  <td>
+                    <span class="text-muted"><%= essay.created_at %></span>
+                  </td>
+                  <td>
+                    <span class="text-muted"><%= reward_points essay %></span>
+                  </td>
+                  <td>
+                    <span class="text-muted"><%= reward_position essay %></span>
+                  </td>
+                  <td>
+                    <a class="btn btn-primary" href=<%= essay_url(essay.id) %> role="button">View</a>
+                    <a class="btn btn-warning" href=<%= edit_essay_path(essay.id) %> role="button">Edit</a>
+                  </td>
+                </tr>
+              <% end %>
+            <% else %>
+              <tr>
+                <td colspan="5" style="text-align: center;">No records</td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

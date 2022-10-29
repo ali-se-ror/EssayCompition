@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title"><%= @essay.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @essay.created_at %></h6>
+    <p class="card-text"><%= @essay.body %></p>
+    <%= link_to "Edit this essay", edit_essay_path(@essay), class: "card-link" %> |
+    <%= link_to "Back to essays", essays_path, class: "card-link" %>
+  </div>
+</div>
